@@ -1,0 +1,1327 @@
+# PROJECT: UNIVERSE — A GLOBAL UNIVERSITY CONFESSION & STUDENT COMMUNITY PLATFORM
+
+Act as a senior full-stack developer, UI/UX designer, product designer, and software architect.
+
+Build a complete, responsive, interactive university community website called "UniVerse." The name must be easy to change later.
+
+This is a student-centered platform where university students from around the world can share anonymous confessions, communicate with other students, exchange academic notes, recommend places near their universities, create cute avatars, and customize the entire website to their personal taste.
+
+The website must look like a professionally designed, production-quality application. Do not create a generic AI-looking landing page, a basic dashboard template, or a static mockup.
+
+I want a real project with multiple pages, reusable components, a proper folder structure, working navigation, functional interactions, and a consistent design system.
+
+The project must be downloadable or exportable as a complete folder that I can open in Visual Studio Code and run locally.
+
+Do not put the entire application into one HTML file.
+
+---
+
+# 1. CORE DESIGN PHILOSOPHY
+
+Create a modern, aesthetic, highly customizable student platform.
+
+The design should feel like a combination of:
+
+* Pinterest's visual inspiration.
+* Discord's student community functionality.
+* Reddit's category-based discussions.
+* A modern university social network.
+* Cute, personalized avatar and profile customization.
+* A beautifully designed anonymous confession wall.
+
+However, the final design must have its own unique identity. Do not copy the exact interface of any existing platform.
+
+Avoid:
+
+* Generic AI-generated landing page designs.
+* Excessive gradients.
+* Unnecessary glassmorphism.
+* Huge empty hero sections.
+* Oversized headings that waste screen space.
+* Repetitive rounded cards everywhere.
+* Excessive animations.
+* Emoji-only navigation.
+* Fake functionality and buttons that do nothing.
+
+Use thoughtful typography, balanced spacing, subtle borders, elegant layouts, attractive icons, and carefully chosen colors.
+
+The website should feel like a real product that students would genuinely want to use every day.
+
+The interface must be responsive on desktop, tablets, and mobile devices.
+
+Default language: English.
+
+Structure the application so that Azerbaijani and other languages can be added later.
+
+---
+
+# 2. COMPLETE THEME CUSTOMIZATION SYSTEM
+
+Theme customization is one of the most important features.
+
+Create a dedicated appearance settings panel that allows users to change the website's visual identity instantly.
+
+## A. Light and dark modes
+
+Include:
+
+* Light mode.
+* Dark mode.
+* System preference mode.
+
+Switching modes must update the entire application, including navigation, cards, forms, dialogs, chat, confession pages, profile pages, and settings.
+
+Persist the user's selection between visits.
+
+## B. Custom color picker
+
+Include a real HTML color input:
+
+<input type="color">
+
+Users must be able to select any color they want.
+
+Allow customization of:
+
+* Primary color.
+* Accent color.
+* Background color.
+* Surface or card color.
+* Text color, when appropriate.
+
+Provide a live preview.
+
+Add a reset button and a way to save custom palettes.
+
+Use CSS variables so that custom colors are applied consistently throughout the application.
+
+Maintain readable text contrast when users choose unusual colors.
+
+## C. Preset aesthetic themes
+
+Create selectable visual themes, including:
+
+1. Cute / Kawaii
+
+   * Pastel pink, lavender, cream, and soft blue.
+   * Small decorative elements.
+   * Cute 2D avatar illustrations.
+   * Soft, friendly visual details.
+
+2. Minimalist
+
+   * Neutral colors.
+   * Clean typography.
+   * Generous spacing.
+   * Simple layouts and minimal decoration.
+
+3. Gothic / Dark Academia
+
+   * Charcoal, burgundy, black, and muted purple.
+   * Elegant serif headings.
+   * Subtle ornamental details.
+   * A mysterious but readable interface.
+
+4. Academia
+
+   * Cream, brown, forest green, and muted gold.
+   * Editorial typography.
+   * Book-inspired details.
+
+5. Y2K
+
+   * Playful colors.
+   * Retro digital design details.
+   * Bold accents.
+
+6. Cyber
+
+   * Dark surfaces.
+   * Neon cyan, violet, or green accents.
+   * Subtle futuristic details.
+
+7. Nature
+
+   * Sage green.
+   * Earthy neutrals.
+   * Calm and organic design.
+
+8. Ocean
+
+   * Blue, teal, and cool neutral tones.
+
+9. Sunset
+
+   * Warm coral, orange, pink, and purple.
+
+10. Monochrome
+
+    * Black, white, gray, and restrained accents.
+
+11. Coquette
+
+    * Soft blush, cream, delicate decorative details, and elegant typography.
+
+12. Lavender Dream
+
+    * Lavender, lilac, and soft violet tones.
+
+Each preset must change the actual website appearance, not merely the name displayed in settings.
+
+Every preset must support both light and dark variants where appropriate.
+
+Users must be able to combine a preset theme with a custom accent color.
+
+Changing themes must not reset the user's content or account information.
+
+## D. Theme implementation
+
+Use a centralized theme system.
+
+Example:
+
+:root {
+--color-primary: #8b5cf6;
+--color-accent: #ec4899;
+--color-background: #faf9ff;
+--color-surface: #ffffff;
+--color-text: #24212d;
+--color-muted: #777383;
+--color-border: #e9e5f0;
+}
+
+Use a theme data structure to define presets.
+
+Persist settings using localStorage for the initial local prototype.
+
+Apply themes immediately without requiring a page reload.
+
+Add a theme preview card for each preset.
+
+---
+
+# 3. GLOBAL UNIVERSITY DIRECTORY
+
+Create a university selection page that serves as the entrance to the community.
+
+The first-time visitor should be able to choose their university before entering its dedicated community.
+
+## A. Global university selection
+
+Build a university discovery interface.
+
+Include:
+
+* Search by university name.
+* Country selection.
+* Region selection.
+* Search suggestions.
+* University cards.
+* Country flags where available.
+* University name.
+* City and country.
+* University logo or a clean placeholder.
+* A button to enter the university community.
+
+Organize universities by country.
+
+Users must be able to find universities around the world, not just universities in Azerbaijan.
+
+Do not pretend to have a complete worldwide university database if one has not been integrated.
+
+Use a maintainable university data source or API adapter so a real global university database can be connected later.
+
+Create a local sample dataset for development and testing.
+
+Include a country selector that can support all countries.
+
+If a university is not listed, provide a request or suggestion form.
+
+## B. Azerbaijan-first experience
+
+Azerbaijan must receive special attention in the university directory.
+
+Create a prominent "Explore Universities in Azerbaijan" section.
+
+Include an initial sample dataset containing these institutions:
+
+* ADA University.
+* Baku State University.
+* Azerbaijan State University of Economics (UNEC).
+* Azerbaijan Technical University.
+* Azerbaijan Medical University.
+* Azerbaijan University of Languages.
+* Azerbaijan State Pedagogical University.
+* Azerbaijan Architecture and Construction University.
+* Azerbaijan University.
+* Khazar University.
+* Baku Engineering University.
+* Western Caspian University.
+* Baku Higher Oil School.
+* Azerbaijan Tourism and Management University.
+* Azerbaijan State Oil and Industry University.
+
+Store university information in structured data rather than hardcoding it throughout components.
+
+The dataset must be easy to expand.
+
+University names, logos, locations, and descriptions should be replaceable with verified information.
+
+## C. University community entry
+
+When a student selects a university, navigate to its dedicated community page.
+
+For example:
+
+/universities/ada-university
+
+/universities/baku-state-university
+
+/universities/khazar-university
+
+The university page should have its own confessions, academic resources, community chat, and recommendations.
+
+Clearly display which university community the student is viewing.
+
+Persist the selected university locally.
+
+Allow users to switch universities later.
+
+Do not claim that a visitor is an enrolled student merely because they selected a university.
+
+---
+
+# 4. MAIN UNIVERSITY COMMUNITY PAGE
+
+Each university community should feel like its own small social platform.
+
+Create a clean, personalized university dashboard.
+
+Include:
+
+* University name and location.
+* University community navigation.
+* Latest confessions.
+* Popular confessions.
+* Recent academic resources.
+* Student recommendations.
+* Active discussion topics.
+* Community announcements.
+* Quick actions for creating a confession, sharing notes, and opening chat.
+
+Include category filters and a useful search feature.
+
+The page must display realistic sample content so the application looks complete during development.
+
+Clearly distinguish sample content from real student submissions.
+
+---
+
+# 5. ANONYMOUS CONFESSION SYSTEM
+
+This is one of the central features.
+
+Create a fully interactive confession feed for each university.
+
+## A. Confession creation
+
+Provide a prominent "Write a confession" button.
+
+Open a dedicated composer page, modal, or drawer.
+
+The composer should include:
+
+* Confession title, optional.
+* Confession text.
+* Category selection, optional.
+* Anonymous or named publishing mode.
+* Optional course or department.
+* Optional academic year.
+* Optional group information.
+* Optional image attachment.
+* Preview before publishing.
+* Submit button.
+
+Users must be able to submit a confession without displaying their real name.
+
+The default should be anonymous.
+
+Make optional identifying fields private by default.
+
+Do not require students to provide their real name, class group, year, or department to publish anonymously.
+
+## B. Privacy controls
+
+Provide clear choices:
+
+1. Completely anonymous to other students.
+2. Publish using a custom nickname.
+3. Publish using the student's profile.
+
+Explain what other users can see before publishing.
+
+For anonymous posts, do not display the author's profile name, avatar, group, academic year, or department.
+
+Never expose private profile information in the public post data returned to other users.
+
+If account information is retained for moderation or abuse prevention, store it separately from public post content and restrict access appropriately.
+
+Do not promise absolute anonymity. Explain that anonymity depends on the platform's infrastructure, logging, and moderation practices.
+
+## C. Confession feed
+
+Display confessions in attractive, readable cards.
+
+Each card can contain:
+
+* Title.
+* Confession text.
+* Category.
+* University.
+* Relative publication time.
+* Anonymous identity or selected public profile.
+* Like or reaction count.
+* Comment count.
+* Save button.
+* Share button.
+* Report button.
+
+Do not display private information on anonymous posts.
+
+Add filters for:
+
+* Latest.
+* Popular.
+* Most discussed.
+* Random confession.
+* Saved confessions.
+
+Add category filters.
+
+## D. Confession categories
+
+Support at least these categories:
+
+* Love & Crushes.
+* Funny.
+* Gossip.
+* Academic Life.
+* Friendship.
+* Roommates.
+* University Life.
+* Rants.
+* Advice.
+* Secrets.
+* Career.
+* Other.
+
+Create visually distinct category labels that match the selected theme.
+
+Allow the AI classification system to assign a category automatically.
+
+Users should still be able to correct the category before publishing or change it afterward if permitted.
+
+## E. Comments and reactions
+
+Implement:
+
+* Comments.
+* Replies where appropriate.
+* Likes.
+* Optional reactions.
+* Saved posts.
+* Sorting and filtering.
+* Reporting.
+
+Add moderation safeguards for bullying, harassment, threats, doxxing, and targeted accusations.
+
+Do not encourage the publication of private information about other people.
+
+Require confirmation before deleting a post.
+
+Use pagination or infinite scrolling without loading every post at once.
+
+---
+
+# 6. BUILT-IN AI CONFESSION ANALYZER
+
+Create an AI-powered classification service.
+
+When a user submits a confession, analyze its text and determine:
+
+* Primary category.
+* Optional secondary category.
+* Sentiment.
+* General topic.
+* Whether it is a question.
+* Whether it is seeking advice.
+* Whether it appears to contain personal information.
+* Whether it may violate community rules.
+
+Use the results to organize the confession feed and assist moderation.
+
+## Example
+
+Input:
+
+"I have a crush on someone in my lecture, but I have no idea how to start talking to them."
+
+Expected classification:
+
+{
+"category": "Love & Crushes",
+"secondaryCategory": "Advice",
+"sentiment": "Nervous",
+"topic": "University relationships",
+"isQuestion": true,
+"needsAdvice": true,
+"moderationStatus": "Review"
+}
+
+The exact classification must depend on the content.
+
+## AI implementation requirements
+
+Use a structured JSON response from the model.
+
+Validate the output before using it.
+
+Use a server-side API endpoint for AI requests.
+
+Never expose private AI API keys in frontend code or public environment variables.
+
+Use environment variables for credentials.
+
+If a Gemini API integration is used, implement it through a secure server-side service.
+
+If AI is not configured, provide a functional local fallback classifier using keyword rules.
+
+The application must still run without an AI API key.
+
+Do not pretend the fallback classifier is a real AI model.
+
+Display an appropriate label in development mode.
+
+## Moderation requirements
+
+The AI must not automatically label every accusation as factual.
+
+Potentially harmful posts should be held for review rather than automatically published.
+
+Create a moderation status system:
+
+* Pending.
+* Published.
+* Needs Review.
+* Rejected.
+
+Allow community administrators to review flagged content.
+
+Do not infer sensitive personal characteristics from confessions.
+
+Do not use sentiment classification to diagnose mental health conditions.
+
+---
+
+# 7. ACADEMIC NOTES AND KNOWLEDGE SHARING
+
+Create a dedicated academic resource section.
+
+Possible route:
+
+/universities/:universitySlug/resources
+
+Students should be able to share and discover useful academic materials.
+
+## Resource types
+
+Support:
+
+* Lecture notes.
+* Study guides.
+* Exam preparation advice.
+* Course recommendations.
+* Study schedules.
+* Project resources.
+* Useful websites.
+* Educational tools.
+* General university survival tips.
+
+## Resource creation
+
+Allow students to submit:
+
+* Title.
+* Description.
+* University.
+* Course or subject.
+* Department, optional.
+* Academic year, optional.
+* Resource type.
+* Tags.
+* Optional image.
+* Optional PDF or document attachment, when storage is configured.
+* Source or attribution, where relevant.
+
+Provide upload validation, size limits, and clear error messages.
+
+Do not execute uploaded files.
+
+Use a safe attachment preview or download workflow.
+
+Do not host copyrighted textbooks or other materials without permission.
+
+## Resource feed
+
+Include:
+
+* Search.
+* Category filters.
+* Subject filters.
+* Newest resources.
+* Most useful resources.
+* Saved resources.
+* Like or helpfulness votes.
+* Comments.
+* Resource detail pages.
+
+Create attractive resource cards.
+
+Display an optional contributor nickname.
+
+Students should be able to contribute anonymously where appropriate.
+
+## Study resource recommendations
+
+Include a section called "Useful Study Tools."
+
+Provide a configurable list of educational websites and tools.
+
+Each recommendation should contain:
+
+* Name.
+* Description.
+* Category.
+* Website URL.
+* University relevance where applicable.
+
+Use verified destinations and open external links safely.
+
+Keep the list editable through a data file or administrator interface.
+
+---
+
+# 8. STUDENT CHAT AND DISCUSSION ROOMS
+
+Create a student chat section.
+
+Possible route:
+
+/universities/:universitySlug/chat
+
+Include a clean, modern messaging interface.
+
+## Chat room types
+
+1. General university chat.
+2. Academic help.
+3. Course discussions.
+4. Campus life.
+5. Cafe and food recommendations.
+6. Shopping recommendations.
+7. Study tools.
+8. Clubs and events.
+9. Roommates and accommodation.
+10. Student advice.
+
+Allow users to browse rooms and join discussions.
+
+## Chat features
+
+Include:
+
+* Message list.
+* Message composer.
+* Sender avatar.
+* Display name or nickname.
+* Timestamps.
+* Replies or message threads.
+* Emoji reactions.
+* Room search.
+* Message reporting.
+* Mute or block controls.
+* Basic unread indicators.
+* Mobile-friendly chat layout.
+
+Allow students to share recommendations for:
+
+* Cafes.
+* Restaurants.
+* Bookstores.
+* Stationery shops.
+* Libraries.
+* Quiet study spaces.
+* Affordable food.
+* Useful apps and websites.
+* Campus events.
+
+Provide recommendation tags, such as:
+
+* Affordable.
+* Quiet.
+* Good Wi-Fi.
+* Group study.
+* Late opening.
+* Near campus.
+
+## Important technical requirement
+
+A local-only prototype can simulate chat using local storage and clearly label it as local demo mode.
+
+For genuine communication between different users and devices, create a backend integration layer.
+
+Use a real-time service such as Firebase or Supabase when configured.
+
+Support persistent messages, user identity, room membership, and appropriate access controls.
+
+Do not claim that localStorage provides real-time communication between students.
+
+Never allow users to access private rooms or messages without authorization.
+
+Include anti-spam protections, rate limits, reporting, and blocking.
+
+Do not add private direct messaging unless the required access controls and reporting features are implemented.
+
+---
+
+# 9. CUTE 2D AVATAR CREATOR
+
+Create an interactive avatar customization page.
+
+Possible route:
+
+/profile/avatar
+
+The avatar style must be cute, 2D, expressive, and customizable.
+
+Avoid generic realistic AI-generated faces.
+
+Create a cohesive illustrated style using SVG or layered vector illustrations.
+
+## Avatar customization options
+
+Allow users to customize:
+
+* Face shape.
+* Skin tone.
+* Hairstyle.
+* Hair color.
+* Eye style.
+* Eye color.
+* Eyebrows.
+* Mouth.
+* Blush.
+* Accessories.
+* Glasses.
+* Hats.
+* Earrings.
+* Clothing.
+* Clothing color.
+* Background shape.
+* Decorative elements.
+
+Include multiple choices for each category.
+
+Show the avatar preview live.
+
+Include randomize, reset, save, and cancel buttons.
+
+## Theme-aware avatar styles
+
+Avatar designs should complement the chosen website theme.
+
+Examples:
+
+Cute:
+
+* Pastel backgrounds.
+* Bows.
+* Hearts.
+* Soft colors.
+
+Gothic:
+
+* Dark accessories.
+* Black and burgundy clothing.
+* Moon or star details.
+
+Minimalist:
+
+* Simple shapes.
+* Restrained colors.
+* Clean backgrounds.
+
+Y2K:
+
+* Bright accessories.
+* Retro colors.
+* Playful details.
+
+Academia:
+
+* Sweaters.
+* Books.
+* Glasses.
+* Muted colors.
+
+Users must retain control over their avatars even when switching themes.
+
+Save avatar configuration as structured data.
+
+If SVG avatars are used, sanitize any user-controlled values before rendering.
+
+Do not depend on a paid avatar API for the basic avatar creator.
+
+---
+
+# 10. USER PROFILES
+
+Create a profile system with privacy controls.
+
+Profiles may include:
+
+* Avatar.
+* Display name.
+* University.
+* Optional department.
+* Optional academic year.
+* Optional group.
+* Optional short biography.
+* Publicly shared resources.
+* Public confessions, if applicable.
+* Account preferences.
+
+All identifying profile fields must be optional unless strictly required for authentication or security.
+
+Let users choose which fields are public.
+
+Anonymous posts must not link back to a public profile through their displayed metadata.
+
+Provide:
+
+* Edit profile.
+* Change avatar.
+* Privacy settings.
+* Saved posts.
+* Saved resources.
+* Theme settings.
+* Blocked users.
+* Report history where appropriate.
+* Sign out.
+
+Use a clear separation between account identity and publicly visible profile information.
+
+---
+
+# 11. NAVIGATION AND APPLICATION STRUCTURE
+
+Create a consistent navigation system.
+
+Desktop navigation should contain:
+
+* Home.
+* Universities.
+* Confessions.
+* Academic Resources.
+* Chat.
+* Profile.
+
+A settings or customization entry should be easily accessible.
+
+Use a mobile bottom navigation bar where appropriate.
+
+The current university should be visible when browsing university-specific pages.
+
+Create the following main routes:
+
+/
+Global landing page.
+
+/universities
+University directory.
+
+/universities/:universitySlug
+University community dashboard.
+
+/universities/:universitySlug/confessions
+University confession feed.
+
+/universities/:universitySlug/confessions/new
+Confession composer.
+
+/universities/:universitySlug/resources
+Academic resources.
+
+/universities/:universitySlug/resources/new
+Resource creation.
+
+/universities/:universitySlug/chat
+Student chat.
+
+/universities/:universitySlug/recommendations
+Campus recommendations.
+
+/profile
+User profile.
+
+/profile/avatar
+Avatar creator.
+
+/settings
+Theme and account settings.
+
+/moderation
+Moderation dashboard for authorized administrators.
+
+Ensure all routes work correctly.
+
+Add a friendly not-found page.
+
+Do not create navigation links that lead nowhere.
+
+---
+
+# 12. LANDING PAGE DESIGN
+
+Design a beautiful, concise landing page.
+
+Avoid the typical oversized AI-generated hero.
+
+Include:
+
+* Brand logo and name.
+* A short, memorable tagline.
+* A university search bar.
+* A prominent "Explore Universities" button.
+* A featured Azerbaijan universities section.
+* A preview of the confession feed.
+* An academic resource preview.
+* A student community preview.
+* A compact section introducing the theme and avatar customization.
+* Clear entry points into the application.
+
+Example tagline:
+
+"Your campus. Your people. Your space."
+
+Use realistic sample content.
+
+Provide a clear route into the application without requiring account creation just to browse public demo content.
+
+The landing page must look attractive in both light and dark mode.
+
+---
+
+# 13. SAFETY, PRIVACY, AND COMMUNITY TRUST
+
+This platform allows anonymous submissions, so safety must be treated as a core feature rather than an optional extra.
+
+Implement:
+
+* Report buttons.
+* Block and mute controls.
+* Content moderation.
+* Spam prevention.
+* Rate limiting where a backend exists.
+* Clear community guidelines.
+* Privacy settings.
+* Safe image upload handling.
+* Safe external links.
+* Accessible form validation.
+* Protection against common web vulnerabilities.
+
+Do not expose email addresses, authentication identifiers, private profile fields, or moderation metadata in public responses.
+
+Do not reveal the identity behind an anonymous post to other students or ordinary moderators through the public interface.
+
+Restrict administrative data access to authorized personnel.
+
+Include clear guidance against posting:
+
+* Private contact information.
+* Home addresses.
+* Login credentials.
+* Private photographs without consent.
+* Targeted harassment.
+* Threats.
+* Unverified accusations presented as facts.
+
+Create a community guidelines page or modal.
+
+Make moderation decisions explainable where possible.
+
+Give users an appropriate appeal or review mechanism for removed content.
+
+Do not promise that any website can guarantee perfect anonymity.
+
+---
+
+# 14. TECHNICAL STACK
+
+Build the application using:
+
+Frontend:
+
+* React.
+* TypeScript.
+* Vite.
+* React Router.
+* Modern CSS or CSS Modules.
+* Lucide React or another consistent icon library.
+
+Backend:
+
+* Create a modular backend integration layer.
+* Use a suitable server-side API for AI classification.
+* Support an optional Supabase or Firebase integration for authentication, persistent data, and real-time chat.
+* Keep the frontend independent of the specific backend where practical.
+
+Local development:
+
+* localStorage for theme settings, avatar configuration, and prototype preferences.
+* Seeded sample data for universities, confessions, resources, and chat rooms.
+* Local demo mode when backend credentials are absent.
+
+Do not require a paid service to launch the frontend locally.
+
+Keep API credentials on the server.
+
+Never place secret keys inside VITE_ environment variables, since Vite exposes those values to frontend code.
+
+Use environment variables and provide an .env.example file with placeholder values only.
+
+Use reusable components and clearly separated services.
+
+Avoid unnecessary dependencies.
+
+---
+
+# 15. REQUIRED PROJECT FOLDER STRUCTURE
+
+Create a proper multi-file project.
+
+Use a structure similar to:
+
+universe/
+├── public/
+│   ├── favicon.svg
+│   └── assets/
+├── src/
+│   ├── app/
+│   │   ├── App.tsx
+│   │   ├── router.tsx
+│   │   └── providers.tsx
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Sidebar.tsx
+│   │   │   ├── MobileNavigation.tsx
+│   │   │   └── PageLayout.tsx
+│   │   ├── theme/
+│   │   │   ├── ThemeProvider.tsx
+│   │   │   ├── ThemeSelector.tsx
+│   │   │   ├── ColorPicker.tsx
+│   │   │   └── ThemePreview.tsx
+│   │   ├── confessions/
+│   │   │   ├── ConfessionCard.tsx
+│   │   │   ├── ConfessionComposer.tsx
+│   │   │   ├── ConfessionFilters.tsx
+│   │   │   └── CommentSection.tsx
+│   │   ├── universities/
+│   │   │   ├── UniversityCard.tsx
+│   │   │   ├── UniversitySearch.tsx
+│   │   │   └── UniversityFilters.tsx
+│   │   ├── resources/
+│   │   │   ├── ResourceCard.tsx
+│   │   │   ├── ResourceUploader.tsx
+│   │   │   └── ResourceFilters.tsx
+│   │   ├── chat/
+│   │   │   ├── ChatRoomList.tsx
+│   │   │   ├── ChatWindow.tsx
+│   │   │   └── MessageComposer.tsx
+│   │   ├── avatar/
+│   │   │   ├── AvatarPreview.tsx
+│   │   │   ├── AvatarEditor.tsx
+│   │   │   └── AvatarOptions.tsx
+│   │   └── common/
+│   ├── pages/
+│   │   ├── LandingPage.tsx
+│   │   ├── UniversitiesPage.tsx
+│   │   ├── UniversityDashboardPage.tsx
+│   │   ├── ConfessionsPage.tsx
+│   │   ├── CreateConfessionPage.tsx
+│   │   ├── ResourcesPage.tsx
+│   │   ├── CreateResourcePage.tsx
+│   │   ├── ChatPage.tsx
+│   │   ├── RecommendationsPage.tsx
+│   │   ├── ProfilePage.tsx
+│   │   ├── AvatarPage.tsx
+│   │   ├── SettingsPage.tsx
+│   │   ├── ModerationPage.tsx
+│   │   └── NotFoundPage.tsx
+│   ├── services/
+│   │   ├── aiClassifier.ts
+│   │   ├── universityService.ts
+│   │   ├── confessionService.ts
+│   │   ├── resourceService.ts
+│   │   ├── chatService.ts
+│   │   └── storageService.ts
+│   ├── data/
+│   │   ├── universities.ts
+│   │   ├── sampleConfessions.ts
+│   │   ├── sampleResources.ts
+│   │   ├── sampleChat.ts
+│   │   └── themePresets.ts
+│   ├── hooks/
+│   ├── types/
+│   │   └── index.ts
+│   ├── styles/
+│   │   ├── globals.css
+│   │   ├── themes.css
+│   │   └── variables.css
+│   └── main.tsx
+├── server/
+│   ├── index.ts
+│   ├── routes/
+│   │   └── ai.ts
+│   └── services/
+│       └── classifier.ts
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+├── README.md
+└── LICENSE
+
+You may adjust this structure if necessary, but maintain a clean separation of concerns.
+
+Do not place every component inside App.tsx.
+
+Do not place all CSS into a single enormous stylesheet.
+
+---
+
+# 16. FUNCTIONALITY REQUIREMENTS
+
+This must be an interactive application, not just a visual prototype.
+
+Implement the following functionality fully for local demo mode:
+
+1. Navigate between pages.
+2. Search universities.
+3. Filter universities by country.
+4. Select a university.
+5. Open its community page.
+6. Switch light and dark modes.
+7. Select all provided theme presets.
+8. Change custom colors with a real HTML color picker.
+9. Save and restore theme preferences.
+10. Create and display confessions.
+11. Categorize confessions using the local classifier.
+12. Filter and sort confessions.
+13. Add comments and reactions.
+14. Save and unsave confessions.
+15. Create academic resource posts.
+16. Search and filter academic resources.
+17. Create and customize a 2D avatar.
+18. Save avatar settings.
+19. Browse chat rooms.
+20. Send and display demo messages locally.
+21. Add campus recommendations.
+22. Edit profile preferences.
+23. Report content.
+24. Display appropriate form validation.
+25. Persist supported demo data across page refreshes.
+26. Display empty states, loading states, and error states.
+27. Make the application usable on mobile.
+28. Provide a reset-demo-data option.
+
+For operations that require a backend, implement a clearly defined adapter and show a helpful configuration state if the backend is not connected.
+
+Never display a fake success message for an operation that has not succeeded.
+
+Clearly distinguish local demo functionality from real multi-user functionality.
+
+---
+
+# 17. VISUAL QUALITY REQUIREMENTS
+
+The website should feel polished from the first screen.
+
+Use:
+
+* A consistent spacing scale.
+* A carefully designed typography system.
+* A restrained color palette for each theme.
+* Attractive empty states.
+* Clear active navigation states.
+* Smooth but subtle transitions.
+* Accessible buttons and forms.
+* Consistent iconography.
+* Readable content widths.
+* Responsive layouts.
+* Skeleton loading states where appropriate.
+* Clear success and error feedback.
+
+Use subtle animations for interactions, not constant decorative movement.
+
+Respect prefers-reduced-motion.
+
+Make sure long confessions remain readable.
+
+Ensure contrast is sufficient across themes.
+
+Avoid relying exclusively on color to convey information.
+
+The Gothic theme should look genuinely different from the Cute theme.
+
+The Minimalist theme should feel restrained.
+
+The Academia theme should have a distinctive editorial style.
+
+The Y2K theme should be playful without sacrificing usability.
+
+The theme system must affect the entire application, not just the landing page.
+
+---
+
+# 18. SAMPLE CONTENT
+
+Seed the local application with realistic, fictional examples.
+
+Include at least:
+
+* 15 Azerbaijan universities.
+* Several international universities.
+* 12 sample confessions across different categories.
+* 8 academic resources.
+* 6 chat rooms.
+* 10 sample chat messages.
+* 8 campus recommendation examples.
+* Several sample user profiles and avatars.
+
+Clearly label fictional demo content where appropriate.
+
+Do not use real students' personal information.
+
+Do not invent claims about actual universities, their students, or their facilities.
+
+Keep sample data in separate files so it can be edited easily.
+
+---
+
+# 19. README AND LOCAL INSTALLATION
+
+Create a complete README.md containing:
+
+* Project overview.
+* Features.
+* Technology stack.
+* Folder structure.
+* Installation instructions.
+* How to run the development server.
+* How to configure the optional backend.
+* How to configure the AI service.
+* How to configure authentication and real-time chat.
+* Environment variable documentation.
+* Explanation of local demo mode.
+* Build instructions.
+* Troubleshooting tips.
+
+The basic local frontend should start with:
+
+npm install
+npm run dev
+
+Provide any additional commands required for the backend.
+
+Make the local demo work without paid API keys.
+
+Ensure the project builds successfully.
+
+---
+
+# 20. IMPLEMENTATION WORKFLOW
+
+Build the project in a logical sequence.
+
+Phase 1:
+Create the React, TypeScript, and Vite project, routing, application shell, and reusable layout components.
+
+Phase 2:
+Implement the complete theme system, custom color picker, and preset aesthetic themes.
+
+Phase 3:
+Build the university directory, Azerbaijan university selection, and university dashboards.
+
+Phase 4:
+Implement confession creation, feeds, categories, reactions, comments, privacy controls, and local classification.
+
+Phase 5:
+Implement academic resources and campus recommendations.
+
+Phase 6:
+Build the chat interface and local demo messaging service.
+
+Phase 7:
+Build the 2D avatar editor and profile system.
+
+Phase 8:
+Implement reporting, moderation interfaces, error states, responsive layouts, and accessibility.
+
+Phase 9:
+Test navigation, data persistence, theme switching, forms, and the production build.
+
+If you cannot complete everything in one generation, prioritize a working foundation and complete the application in coherent phases.
+
+Do not replace missing features with empty buttons or decorative placeholders.
+
+Do not stop after generating a landing page.
+
+---
+
+# 21. FINAL DELIVERABLE
+
+I expect a complete, runnable, multi-file project named universe.
+
+The final output must include:
+
+1. All necessary source files.
+2. A working React application.
+3. A complete folder structure.
+4. Functional navigation.
+5. All theme presets and the custom color picker.
+6. University selection, with Azerbaijan prominently featured.
+7. Confessions with local AI-style classification and privacy options.
+8. Academic resources and recommendations.
+9. A student chat interface.
+10. A customizable cute 2D avatar system.
+11. A settings page.
+12. A README with installation instructions.
+13. An .env.example file.
+14. A successful production build.
+15. Clear instructions for opening and running the project in Visual Studio Code.
+
+If your environment supports creating files and downloadable project artifacts, create the actual project files and provide the complete project as a downloadable ZIP archive.
+
+If ZIP creation is unavailable, create the files in the available project workspace and provide the complete file contents and a clear export procedure.
+
+Do not respond with only a plan, a design description, or a single HTML code block.
+
+Actually implement the project.
+
+Before finishing, inspect the application for broken imports, missing routes, TypeScript errors, and nonfunctional controls. Run the available build and fix any errors you encounter.
+
+The result should be a beautiful, extensible, customizable student community platform that can grow into a real product.

@@ -1,0 +1,6 @@
+{
+  "name": "UniVerse - University Confessions & Student Community",
+  "description": "Global university confession and student community platform featuring personalized aesthetic themes, anonymous feeds, AI moderation analyzer, academic note exchange, campus recommendations, and cute 2D avatars.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
